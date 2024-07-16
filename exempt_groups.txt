@@ -178,6 +178,7 @@ usb-audio-init
 usb-gadget
 usb-init
 usb-otg-switch
+usb-reset
 ux_enhancement
 variants
 vendor-partition

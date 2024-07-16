@@ -1,0 +1,17 @@
+service android_reset_usb /vendor/bin/android_reset_usb.sh
+    class main
+    user root
+    group root shell system
+    disabled
+    oneshot
+    seclabel u:r:android_reset_usb:s0
+
+on property:sys.boot_completed=1
+    setprop vendor.boot_completed 1
+
+{{#usb_reset}}
+on property:sys.boot_completed=1
+    #Start android_reset_usb if enabled
+    start android_reset_usb
+{{/usb_reset}}
+
